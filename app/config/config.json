@@ -1,0 +1,8 @@
+{
+  "MODEL": {
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+    "package_name": "langchain_huggingface import HuggingFaceEmbeddings"
+  }
+}
