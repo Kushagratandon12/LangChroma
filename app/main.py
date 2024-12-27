@@ -22,6 +22,10 @@ async def add_data_to_vectordb(request: Request):
     """
     This view helps to add data to vectordb setup locally
     """
-    user_input_data = await request.json()
-    uuid = insert_data(user_input_data=user_input_data)
-    return {"message":"Data added to vectordb successfully", "status": 200, "error": None, "vector_db_uuid": uuid}
+    try:
+        user_input_data = await request.json()
+        insert_data(user_input_data=user_input_data)
+        return {"message":"Data added to vectordb successfully", "status": 200, "error": None}
+    
+    except Exception as err:
+        return {"message":"Data added to vectordb failed", "status": 400, "error": err}
